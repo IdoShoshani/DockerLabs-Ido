@@ -51,8 +51,10 @@ echo 'Docker rocks !!!' | docker run -it -a stdin alpine cat -
 sudo apt install -y tree
 
 # Verify that the directories were created
-cd registry && tree
+tree registry
+```
 
+```bash
 # We should see the following structure
 .
 ├── auth
@@ -154,7 +156,7 @@ EOF
 
 ```sh
 # Create a new virtual host file for our nginx service
-cat << EOF > nginx/conf.d/registry.conf
+cat << EOF > registry/nginx/conf.d/registry.conf
 upstream docker-registry {
   server registry:5000;
 }
